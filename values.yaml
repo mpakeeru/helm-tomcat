@@ -1,0 +1,19 @@
+replicacount: 3
+
+image:
+  name: mamathasama/tomcatwebapp
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 1.0-amd64
+service:
+  type: NodePort
+  port: 8080
+
+containerName: tomcat-webapp
+namespace: dev
+labels:
+  name: tomcat
+  role: app
+  tier: frontend
+containerPort: 8080
+

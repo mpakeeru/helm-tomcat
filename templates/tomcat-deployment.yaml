@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deploy
+  namespace: {{ .Values.namespace }}
+  labels: 
+    name: {{ .Values.labels.name }}
+    role: {{ .Values.labels.role }}
+    tier: {{ .Values.labels.tier }}
+spec:
+  replicas: {{ .Values.replicacount }}
+  selector:  
+    matchLabels:
+      name: {{ .Values.labels.name }}
+      role: {{ .Values.labels.role }}
+      tier: {{ .Values.labels.tier }}
+  template:
+    metadata:
+      labels:
+        name: {{ .Values.labels.name }}
+        role: {{ .Values.labels.role }}
+        tier: {{ .Values.labels.tier }}
+    spec:
+      containers: 
+      - name: {{ .Values.containerName }}
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        ports: 
+        - containerPort: {{ .Values.containerPort }}   
+
+
+
