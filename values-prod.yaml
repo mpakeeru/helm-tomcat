@@ -4,7 +4,7 @@ image:
   name: mamathasama/javagithub
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: build-52
+  tag: build-53
 service:
   type: NodePort
   port: 8080
