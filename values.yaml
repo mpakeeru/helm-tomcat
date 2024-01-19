@@ -4,7 +4,7 @@ image:
   name: mamathasama/tomcatwebapp
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 1.0-amd64
+  tag: build-52
 service:
   type: NodePort
   port: 8080
